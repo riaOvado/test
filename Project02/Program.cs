@@ -1,5 +1,5 @@
 ﻿using System;
-namespace Work
+namespace SeminarTwo
 {
     class Program
     {
