@@ -6,42 +6,22 @@ namespace SeminarTwo
         static void Main(string[] args)
         {
 
-            int[] array = { 1, 2, 19, 3, 31, 5, 6, 6, 10, 14 };
-            PrintArray(array); 
-            SelectionSort(array);
-            PrintArray(array);
-            
-        }
+                int n = 0;
+                n = int.Parse(Console.ReadLine());
 
-         static void PrintArray(int[] arr)
-        {
-            int lenght = arr.Length;
-            for(int i = 0; i < lenght; i++)
-            {
-                Console.Write(arr[i] + " ");
-            }
-            Console.WriteLine();
-        }
-        static void SelectionSort(int[] arr)
-        {
-            for(int i = 0; i < arr.Length - 1; i++)
-            {
-                int min = i;
-
-                for(int j = i + 1; j < arr.Length; j++)
+                for (int i = 1; i <= n; i++)
                 {
-                    if (arr[j] < arr[min])
-                    {
-                        min = j;
-                    }
+                    int b = i * i;
+                    Console.WriteLine(b + " ");
+
                 }
 
-                int temporary = arr[i];
-                arr[i] = arr[min];
-                arr[min] = temporary;
-            }
         }
 
-
     }
+
+         
+
+
 }
+
