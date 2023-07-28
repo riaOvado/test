@@ -7,7 +7,7 @@ namespace Lesson
         {
             //Task25();
             //Task27();
-            Task29();
+            //Task29();
         }
 
         static void Task25()
