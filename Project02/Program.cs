@@ -1,119 +1,87 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-namespace SeminarTwo
+namespace Lesson
 {
     class Program
     {
         static void Main(string[] args)
         {
-            //Домашняя работа за 3 семинар
-
-            //TaskNineteen();
-            //TaskTwentyOne();
-            //TaskTwentyThree();
-
+            // Task34();
+            // Task36();
+            // Task38();
         }
 
-        //Задача 19: Напишите программу, которая принимает на
-        //вход пятизначное число и проверяет, является ли оно
-        //палиндромом.
-        //14212->нет
-        //23432->да
-        //12821->да
-        static void TaskNineteen()
+        static void Task34()
         {
-            int a = 0;
-            Console.WriteLine("введите пятизначное число");
-            a = int.Parse(Console.ReadLine());
-
-            if (a >= 10000 && a <= 99999)
+            // Задача 34: Задайте массив заполненный случайными положительными трёхзначными числами.
+            // Напишите программу, которая покажет количество чётных чисел в массиве.
+            //[345, 897, 568, 234] -> 2
+            int[] arr = new int[10];
+            int kolvoChet = 0;
+            Random rnd = new Random();
+            for (int i = 0; i < arr.Length; i++)
             {
-                string str = a.ToString();
-                int[] b = new int[str.Length];
-                for (int i = 0; i < str.Length; i++)
+                arr[i] = rnd.Next(100, 999);
+                Console.Write(arr[i] + " ");
+                if (arr[i] % 2 == 0)
                 {
-                    b[i] = int.Parse(str[i].ToString());
-
-                    Console.Write(b[i] + " ");
+                    kolvoChet++;
                 }
-                Console.WriteLine();
-                int[] c = new int[b.Length];
-
-                // for (int i = b.Length - 1; i >= 0; i--)
-                for (int i = 0; i < b.Length; i++)
-
-                {
-                    c[i] = b[i];
-                }
-
-                Array.Reverse(c);
-                for (int i = 0; i < c.Length; i++)
-                {
-                    Console.Write(c[i] + " ");
-                }
-                Console.WriteLine();
-                bool isEqual = b.SequenceEqual(c);
-                if (isEqual)
-                {
-                    Console.WriteLine("полиндром");
-                }
-                else { Console.WriteLine("не полиндром"); }
 
             }
-            else { Console.WriteLine("нужно ввести пятизначное"); }
+            Console.WriteLine("Колво четных - " + kolvoChet);
         }
-
-        //Задача 21: Напишите программу, которая принимает на
-        //вход координаты двух точек и находит расстояние между
-        //ними в 3D пространстве.
-        //A(3,6,8); B(2,1,-7), -> 15.84
-        //A(7,-5, 0); B(1,-1,9) -> 11.53
-        static void TaskTwentyOne()
+        static void Task36()
         {
-            int x1 = 0, x2 = 0, y1 = 0, y2 = 0, z1 = 0, z2 = 0;
-            double d = 0;
-            Console.WriteLine("введите x1");
-            x1 = int.Parse(Console.ReadLine());
-            Console.WriteLine("введите x2");
-            x2 = int.Parse(Console.ReadLine());
-            Console.WriteLine("введите y1");
-            y1 = int.Parse(Console.ReadLine());
-            Console.WriteLine("введите y2");
-            y2 = int.Parse(Console.ReadLine());
-            Console.WriteLine("введите z1");
-            z1 = int.Parse(Console.ReadLine());
-            Console.WriteLine("введите z2");
-            z2 = int.Parse(Console.ReadLine());
-
-            d = Math.Sqrt((x2-x1) * (x2-x1) + (y2 - y1) * (y2 - y1) + (z2 - z1) * (z2 - z1));
-            Console.WriteLine("d = " + d);
-
-        }
-
-        //Задача 23
-        //Напишите программу, которая принимает на вход число(N) и выдаёт таблицу кубов чисел от 1 до N.
-        //3 -> 1, 8, 27
-        //5 -> 1, 8, 27, 64, 125
-        static void TaskTwentyThree()
-        {
-            int n = 0;
-            Console.WriteLine("введите n");
-            n = int.Parse(Console.ReadLine());
-            if (n > 0)
+            //Задача 36: Задайте одномерный массив, заполненный случайными числами.
+            //Найдите сумму элементов, стоящих на нечётных позициях.
+            //[3, 7, 23, 12] -> 19
+            //Вариант 1, где номер элемента начинается с 0
+            //int[] arr = new int[10];
+            //int summaElementov = 0;
+            //Random rnd = new Random();
+            //for( int i = 0; i < arr.Length; i++)
+            //{
+            //    arr[i] = rnd.Next(1, 100);
+            //    Console.Write(arr[i] + " ");
+            //    if(i % 2 != 0)
+            //    {
+            //        summaElementov += arr[i];
+            //    }
+            //}
+            //Console.WriteLine("сумма элементов на нечетных позициях - " + summaElementov);
+            //Вариант 2, где номер элемента считается с 1, для удобства пользователя
+            int[] arr = new int[10];
+            int summaElementov = 0;
+            Random rnd = new Random();
+            for (int i = 0; i < arr.Length; i++)
             {
-                for (int i = 1; i <= n; i++)
-                {
-                    int c = i * i * i;
-                    Console.Write(c + " ");
-                }
+                arr[i] = rnd.Next(1, 100);
+                Console.Write(arr[i] + " ");
             }
+            for (int i = 0; i < arr.Length; i = i + 2)
+            {
+                summaElementov += arr[i];
+            }
+            Console.WriteLine("сумма элементов на нечетных позициях - " + summaElementov);
+
         }
 
+        static void Task38()
+        {
+            //Задача 38: Задайте массив вещественных чисел. 
+            //Найдите разницу между максимальным и минимальным элементов массива.
+            //[3.22, 4.2, 1.15, 77.15, 65.2] => 77.15 - 1.15 = 76
+            double[] arr = new double[10];
+            Random rnd = new Random();
+            for (int i = 0; i < arr.Length; i++)
+            {
+                arr[i] = Math.Round((rnd.Next(-10, 10) + rnd.NextDouble()), 3);
+                Console.Write(arr[i] + " ");
+            }
+            double max = arr.Max();
+            double min = arr.Min();
+            double difference = max - min;
+            Console.WriteLine($"\nmax = {max}\nmin = {min}\nразница = {difference}");
+        }
     }
-
-
-
-
 }
-
